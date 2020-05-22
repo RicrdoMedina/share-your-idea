@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  api:
+    build: .
+    depends_on:
+      - mongo
+    environment:
+      - PORT=3000
+      - MONGO_URI=mongodb://mongo:27017/test
+      - APPLICATION_NAME=Share Your Idea
+      - JWT_SECRET=kQEXxCXYrjRoLzgPd8p74koz9
+      - CACHE_KEY=kQE34xCXYr233RoLzgPd8p74koz9
+      - SWAGGER_DOC=swaggerPROD
+    ports:
+      - "3000:3000"
+
+  mongo:
+    image: mongo
